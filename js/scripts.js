@@ -30,20 +30,13 @@ if(playerInput == '1'){
 
 printMessage('Twój ruch to: ' + playerMove);
 
-if (computerMove == 'kamień' && playerMove == 'papier') {
+
+if ((computerMove == 'kamień' && playerMove == 'papier') || (computerMove == 'papier' && playerMove == 'nożyce') || (computerMove == 'nożyce' && playerMove == 'kamień')) {
   printMessage('Gratulacje! Wygrałeś!');
-} else if (computerMove == 'kamień' && playerMove == 'nożyce') {
-  printMessage('Niestetety, przegrałeś.');
-} else if (computerMove == 'papier' && playerMove == 'kamień') {
-  printMessage('Niestetety, przegrałeś');
-} else if (computerMove == 'papier' && playerMove == 'nożyce') {
-  printMessage('Gratulacje! Wygrałeś!');
-} else if (computerMove == 'nożyce' && playerMove == 'kamień') {
-  printMessage('Gratulacje! Wygrałeś!');
-} else if (computerMove == 'nożyce' && playerMove == 'papier') {
-  printMessage('Niestetety, przegrałeś');
 } else if (computerMove == playerMove) {
   printMessage('WOW, remis:)');
+} else if ((computerMove == 'kamień' && playerMove == 'nożyce') || (computerMove == 'papier' && playerMove == 'kamień') || (computerMove == 'nożyce' && playerMove == 'papier')) {
+  printMessage('Niestetety, przegrałeś.');
 } else if (computerMove == 'kamień', 'papier', 'nożyce' && playerMove == 'nieznany ruch') {
   printMessage('Nie rozumiem :/ Musisz wybrać 1=kamień lub 2=papier lub 3=nożyce');
 }
