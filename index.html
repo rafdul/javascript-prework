@@ -8,12 +8,29 @@
 <body>
 	<div class="container">
 		<div id="buttons">
-      <button id="button-rock">Kamień</button>
-      <button id="button-paper">Papier</button>
-      <button id="button-scissors">Nożyce</button>
-    </div>
+			<h2>Zagraj!</h2>
+			<h3>Krótka instrukcja:</h3>
+				<ul>
+					<li>Wybierz jeden z przycisków z napisem Kamień, Papier, Nożyczki.</li>
+					<li>Po chwili zobaczysz wybór komputera.</li>
+					<li>Gra skończy się po 5 wygranych Twouch lub komputera.</li>
+				</ul>
+			<button id="button-rock">Kamień</button>
+			<button id="button-paper">Papier</button>
+			<button id="button-scissors">Nożyce</button>
+    	</div>
 		<div id="messages"></div>
+		<div id="results">
+			<h2>Wynik gry</h2>
+			<p class="number">Liczba gier: <span> </span></p>
+			<p class="win">Wygrałeś: <span> </span></p>
+			<p class="loss">Przegrałeś: <span> </span></p>
+			<p class="draw">Remisy: <span> </span></p>
+		</div> 
+		<div id="the-winner"></div>
+			
 	</div>
+	
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>
 </body>

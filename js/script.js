@@ -1,14 +1,20 @@
+let summaryGames = 0;
+let summaryWins = 0;
+let summaryLosses = 0;
+let summaryDraws = 0;
+
+
 function playGame(playerInput) {
-  clearMessages();
+  clearMessages(); 
 
   function getMoveName(argMoveId){
     console.log('getMoveName done!');
 
-    if(argMoveId == 1){
+    if(argMoveId === 1){
       return 'kamień';
-    } else if (argMoveId == 2) {
+    } else if (argMoveId === 2) {
       return 'papier';
-    } else if (argMoveId == 3) {
+    } else if (argMoveId === 3) {
       return 'nożyce';
     } else {
       printMessage('Nie znam ruchu o id ' + argMoveId + '.');
@@ -20,20 +26,33 @@ function playGame(playerInput) {
     console.log('moves:', argComputerMove, argPlayerMove);
     console.log('displayResult done!');
 
-    if ((argComputerMove == 'kamień' && argPlayerMove == 'papier') || (argComputerMove == 'papier' && argPlayerMove == 'nożyce') || (argComputerMove == 'nożyce' && argPlayerMove == 'kamień')) {
+    if ((argComputerMove === 'kamień' && argPlayerMove === 'papier') || (argComputerMove === 'papier' && argPlayerMove === 'nożyce') || (argComputerMove === 'nożyce' && argPlayerMove === 'kamień')) {
       console.log('zadziałało sprawdzenie wygranej');
       printMessage('Gratulacje! Wygrałeś!');
-    } else if (argComputerMove == argPlayerMove) {
+      console.log('podaj win');
+      winPlayer = 'wygrał gracz';
+      // return 'winer';
+    } else if (argComputerMove === argPlayerMove) {
       console.log('zadziałało sprawdzenie remisu');
-      printMessage('WOW, remis:)');
-    } else if (argPlayerMove == 'nieznany ruch') {
-      console.log('zadziałało sprawdzenie błędnej wartości');
-      printMessage('Nie rozumiem. Musisz wybrać 1=kamień lub 2=papier lub 3=nożyce');
+      printMessage('WOW, remis');
+      console.log('podaj draw');
+      draw = 'remis';
+      // return 'drawer';
+    // } else if (argPlayerMove === 'nieznany ruch') {
+    //   console.log('zadziałało sprawdzenie błędnej wartości');
+    //   printMessage('Nie rozumiem. Musisz wybrać 1=kamień lub 2=papier lub 3=nożyce');
     } else {
       console.log('zadziałało sprawdzenie przegranej');
       printMessage('Niestetety, przegrałeś.');
+      console.log('podaj loss');
+      winComp = 'wygrał komputer';
+      // return 'loser';
     }
   }
+  let winPlayer = '';
+  let draw = '';
+  let winComp = '';
+  
 
   let randomNumber = Math.floor(Math.random() * 3 + 1);
 
@@ -81,7 +100,78 @@ function playGame(playerInput) {
   } else if (computerMove == 'kamień' || computerMove == 'papier' || computerMove == 'nożyce' && playerMove == 'nieznany ruch') {
     printMessage('Nie rozumiem :/ Musisz wybrać 1=kamień lub 2=papier lub 3=nożyce');
   }*/
+
+
+
+  // let gameSummaryNumbers = 0;
+  // let gameSummaryWins = 0;
+  // let gameSummaryLosses = 0;
+  // let gameSummaryDraws = 0;
+
+  
+  function amountGames () {
+    document.querySelector('p.number span').textContent = ++summaryGames;
+    console.log('amountGames done');
+  }
+  amountGames ();
+
+  // Dlaczego nie działa funkcja, gdy whoWin odsyła do parametru zwróconego w return funkcji displayResult
+
+  // function publishResult(whoWin){
+  //   console.log('publishResult done');
+  //   console.log('who win:', whoWin);
+    
+  //   if(whoWin === 'winer'){
+  //     document.querySelector('p.win span').textContent = ++summaryWins;
+  //     console.log('dodaj wygraną');
+  //     return;
+  //   } else if (whoWin === 'loser'){
+  //     document.querySelector('p.loss span').textContent = ++summaryLosses;
+  //     console.log('dodaj przegraną');
+  //     return;
+  //   } else {
+  //     document.querySelector('p.draw span').textContent = ++summaryDraws;
+  //     console.log('dodaj remis');
+  //   }
+  // }
+  // publishResult();
+
+  function publishResult(whoWin){
+    console.log('publishResult done');
+    
+    if(whoWin = winPlayer){
+      document.querySelector('p.win span').textContent = ++summaryWins;
+      console.log('dodaj wygraną');
+      return;
+    } else if (whoWin = winComp){
+      document.querySelector('p.loss span').textContent = ++summaryLosses;
+      console.log('dodaj przegraną');
+      return;
+    } else if(whoWin = draw){
+      document.querySelector('p.draw span').textContent = ++summaryDraws;
+      console.log('dodaj remis');
+    }
+  }
+  publishResult();
+
+  function theWinnerIs (summaryWins, summaryLosses){
+    console.log('theWinnerIs done');
+
+      if(summaryWins === 2) {
+        document.getElementById('thewinner').innerHTML = 'Wygrałeś!!!';
+        console.log('wygrałeś 2 bitwy');
+        return
+      }
+      else if (summaryLosses === 2) {
+        document.getElementById('thewinner').innerHTML = 'Niestety, przegrałeś:(';
+        console.log('komputer 2 bitwy');
+      }
+    }
+  
+  theWinnerIs();
+  
 }
+
 
 document.getElementById('button-rock').addEventListener('click', function(){
   playGame(1);
@@ -92,3 +182,5 @@ document.getElementById('button-paper').addEventListener('click', function(){
 document.getElementById('button-scissors').addEventListener('click', function(){
   playGame(3);
 });
+
+console.log(summaryWins === 2);
