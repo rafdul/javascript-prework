@@ -1,0 +1,86 @@
+$font-content: 'Roboto', sans-serif;
+$font-message: 'Sansita Swashed', cursive;
+$color-text-dark: #222222;
+
+*,*::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    background: #fff;
+    color: #3d3d3d;
+    font-size: 16px;
+    font-family: $font-content;
+    font-weight: 100;
+    line-height: 1.7;
+    color: $color-text-dark;
+  }
+
+h2 {
+    text-align: center;
+    font-family: $font-content;
+    color:  #0a3d62;
+}
+.box-instruction {
+    justify-content: center;
+}
+.instruction {
+    text-align: left;
+    font-size: 12px;
+    color: #747d8c;
+}
+.instruction-header {
+    text-align: center;
+    font-size: 14px;
+}
+button {
+    display: inline-block;
+    min-width: 160px;
+    margin: 24px 10px 0 10px;
+    padding: 16px;
+    border-radius: 5px;
+    font-family: $font-content;
+    color: #f1f2f6;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-width: 2px;
+    border-style: solid;
+    background-color: #0a3d62;
+}
+
+.game-msg {
+    margin: 15px 200px 0 200px;
+    font-family: $font-message;
+    font-size: 20px;
+    letter-spacing: 2.5;
+    background-color: #ffeaa7;
+}
+.game-msg div {
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.game-result ul {
+    list-style-type: none;
+    text-align: center;
+}
+.game-result li {
+    display: inline-block;
+    padding-right: 40px;
+}
+.win {
+    color: #16a085;
+    font-weight: 900;
+}
+.loss {
+    color: #c0392b;
+    font-weight: 900;
+}
+.number, .draw {
+    color: #7f8c8d;
+    font-weight: 300;
+}

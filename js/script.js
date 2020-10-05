@@ -110,7 +110,7 @@ function playGame(playerInput) {
 
   
   function amountGames () {
-    document.querySelector('p.number span').textContent = ++summaryGames;
+    document.querySelector('li.number span').textContent = ++summaryGames;
     console.log('amountGames done');
   }
   amountGames ();
@@ -140,15 +140,15 @@ function playGame(playerInput) {
     console.log('publishResult done');
     
     if(whoWin = winPlayer){
-      document.querySelector('p.win span').textContent = ++summaryWins;
+      document.querySelector('li.win span').textContent = ++summaryWins;
       console.log('dodaj wygraną');
       return;
     } else if (whoWin = winComp){
-      document.querySelector('p.loss span').textContent = ++summaryLosses;
+      document.querySelector('li.loss span').textContent = ++summaryLosses;
       console.log('dodaj przegraną');
       return;
     } else if(whoWin = draw){
-      document.querySelector('p.draw span').textContent = ++summaryDraws;
+      document.querySelector('li.draw span').textContent = ++summaryDraws;
       console.log('dodaj remis');
     }
   }
@@ -157,18 +157,23 @@ function playGame(playerInput) {
   function theWinnerIs (summaryWins, summaryLosses){
     console.log('theWinnerIs done');
 
-      if(summaryWins === 2) {
-        document.getElementById('thewinner').innerHTML = 'Wygrałeś!!!';
-        console.log('wygrałeś 2 bitwy');
-        return
-      }
-      else if (summaryLosses === 2) {
-        document.getElementById('thewinner').innerHTML = 'Niestety, przegrałeś:(';
-        console.log('komputer 2 bitwy');
-      }
+    if(summaryWins === 2) {
+        // alert('Wygrałeś');
+        printWinner('Wygrałeś!!!');
+        // document.getElementById('thewinner').innerHTML = 'Wygrałeś!!!';
+        // console.log('wygrałeś 2 bitwy');
+        // return
     }
-  
+    if (summaryLosses === 2) {
+      // alert('Przegrałeś');
+      printWinner('Niestety, przegrałeś:(');
+      // document.getElementById('thewinner').innerHTML = 'Niestety, przegrałeś:(';
+      // console.log('komputer wygrał 2 bitwy');
+    }
+  }
   theWinnerIs();
+  console.log(summaryWins===2);
+  
   
 }
 
@@ -183,4 +188,3 @@ document.getElementById('button-scissors').addEventListener('click', function(){
   playGame(3);
 });
 
-console.log(summaryWins === 2);

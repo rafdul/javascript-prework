@@ -3,33 +3,52 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Kamień, papier, nożyce</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Sansita+Swashed:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="vendor/bootstrap-grid.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 	<div class="container">
+		<div class="container">
+			<h2>Zagraj w "Kamień, papier, nożyce"</h2>
+			<div class="row box-instruction">
+				<div class="col-5 instruction">
+					<h3 class="instruction-header">Krótka instrukcja:</h3>
+					<ul>
+						<li>Wybierz jeden z przycisków z napisem Kamień, Papier, Nożyczki.</li>
+						<li>Po chwili zobaczysz wybór komputera.</li>
+						<li>Gra skończy się po 5 wygranych Twouch lub komputera.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
 		<div id="buttons">
-			<h2>Zagraj!</h2>
-			<h3>Krótka instrukcja:</h3>
-				<ul>
-					<li>Wybierz jeden z przycisków z napisem Kamień, Papier, Nożyczki.</li>
-					<li>Po chwili zobaczysz wybór komputera.</li>
-					<li>Gra skończy się po 5 wygranych Twouch lub komputera.</li>
-				</ul>
 			<button id="button-rock">Kamień</button>
 			<button id="button-paper">Papier</button>
 			<button id="button-scissors">Nożyce</button>
-    	</div>
-		<div id="messages"></div>
-		<div id="results">
-			<h2>Wynik gry</h2>
-			<p class="number">Liczba gier: <span> </span></p>
-			<p class="win">Wygrałeś: <span> </span></p>
-			<p class="loss">Przegrałeś: <span> </span></p>
-			<p class="draw">Remisy: <span> </span></p>
+		</div>
+		
+		<div id="messages" class="game-msg"></div>
+		
+		<div id="results" class="container game-result">
+			<div class="row">
+				<div class="col-12">
+					<h2>Wynik gry</h2>
+				</div>
+				<div class="col-12">
+					<ul class="result-list">
+						<li class="number">Liczba gier: <span> </span></li>
+						<li class="draw">Remisy: <span> </span></li>
+						<li class="win">Wygrałeś: <span> </span></li>
+						<li class="loss">Przegrałeś: <span> </span></li>
+					</ul>
+				</div>
+			</div>
 		</div> 
-		<div id="the-winner"></div>
-			
-	</div>
+
+		<div id="thewinner"></div>
+	</div>	
 	
 	<script src="js/functions.js"></script>
 	<script src="js/script.js"></script>

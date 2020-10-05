@@ -8,3 +8,6 @@ function clearMessages(){
 	document.getElementById('messages').innerHTML = '';
 }
 
+function printWinner(msg){
+	document.getElementById('thewinner').innerHTML = msg;
+}
