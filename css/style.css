@@ -54,6 +54,11 @@ button {
   background-color: #0a3d62;
 }
 
+.far {
+  font-size: 25px;
+  padding-right: 10px;
+}
+
 .game-msg {
   margin: 15px 180px 0 180px;
   font-family: "Sansita Swashed", cursive;
@@ -97,11 +102,17 @@ button {
   font-weight: 900;
   margin: 20px 180px;
   color: #30336b;
-  background-color: #ffeaa7;
+  background-color: #CAD3C8;
   padding: 25px, 0;
 }
 
+.the-winner-is div {
+  padding-top: 25px;
+}
+
 .the-winner-is button {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  color: #0c2461;
+  background-color: #e58e26;
 }
 /*# sourceMappingURL=style.css.map */

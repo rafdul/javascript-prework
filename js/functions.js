@@ -15,3 +15,14 @@ function printWinner(msg){
 	let button = document.createElement('button');
 	document.getElementById('thewinner').appendChild(button).innerHTML = 'Zagraj jeszcze raz';
 }
+
+function clearWinner() {
+	document.getElementById('thewinner').innerHTML = '';
+}
+
+function clearPublishResult () {
+	document.querySelector('li.win span').textContent = '';
+	document.querySelector('li.loss span').textContent = '';
+	document.querySelector('li.draw span').textContent = '';
+	document.querySelector('li.number span').textContent = '';
+}

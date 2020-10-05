@@ -64,14 +64,6 @@ function playGame(playerInput) {
   let computerMove = getMoveName(randomNumber);
 
 
-  /*if(randomNumber == 1){
-    computerMove = 'kamień';
-  } else if (randomNumber == 2) {
-    computerMove = 'papier';
-  } else if (randomNumber == 3) {
-    computerMove = 'nożyce';
-  }*/
-
   printMessage('Mój ruch to: ' + computerMove);
 
   /*let playerInput = prompt('Wybierz swój ruch! 1: kamień, 2: papier, 3: nożyce.');*/
@@ -79,44 +71,18 @@ function playGame(playerInput) {
 
   let playerMove = getMoveName(playerInput);
 
-  /*if(playerInput == '1'){
-    playerMove = 'kamień';
-  } else if (playerInput == '2') {
-    playerMove = 'papier';
-  } else if (playerInput == '3') {
-    playerMove = 'nożyce';
-  }*/
 
   printMessage('Twój ruch to: ' + playerMove);
 
   displayResult(computerMove, playerMove);
 
-  /*console.log(getMoveName('3'));
-  console.log(displayResult(argComputerMove == 'kamień' && argPlayerMove == 'nożyce'));*/
 
-  /*if ((computerMove == 'kamień' && playerMove == 'papier') || (computerMove == 'papier' && playerMove == 'nożyce') || (computerMove == 'nożyce' && playerMove == 'kamień')) {
-    printMessage('Gratulacje! Wygrałeś!');
-  } else if (computerMove == playerMove) {
-    printMessage('WOW, remis:)');
-  } else if ((computerMove == 'kamień' && playerMove == 'nożyce') || (computerMove == 'papier' && playerMove == 'kamień') || (computerMove == 'nożyce' && playerMove == 'papier')) {
-    printMessage('Niestetety, przegrałeś.');
-  } else if (computerMove == 'kamień' || computerMove == 'papier' || computerMove == 'nożyce' && playerMove == 'nieznany ruch') {
-    printMessage('Nie rozumiem :/ Musisz wybrać 1=kamień lub 2=papier lub 3=nożyce');
-  }*/
-
-
-
-  // let gameSummaryNumbers = 0;
-  // let gameSummaryWins = 0;
-  // let gameSummaryLosses = 0;
-  // let gameSummaryDraws = 0;
-
-  
-  function amountGames () {
-    document.querySelector('li.number span').textContent = ++summaryGames;
-    console.log('amountGames done');
-  }
-  amountGames ();
+  // Zliczanie liczny gier (włączona do publishResult)
+  // function amountGames () {
+  //   document.querySelector('li.number span').textContent = ++summaryGames;
+  //   console.log('amountGames done');
+  // }
+  // amountGames ();
 
   // Dlaczego nie działa funkcja, gdy whoWin odsyła do parametru zwróconego w return funkcji displayResult
 
@@ -141,6 +107,7 @@ function playGame(playerInput) {
 
   function publishResult(whoWin){
     console.log('publishResult done');
+    document.querySelector('li.number span').textContent = ++summaryGames;
     
     if(whoWin = winPlayer){
       document.querySelector('li.win span').textContent = ++summaryWins;
@@ -158,18 +125,13 @@ function playGame(playerInput) {
   publishResult();
 
   //Koniec gry 
-  if(summaryWins === 2) {
+  if(summaryWins === 5) {
     printWinner('Wygrałeś!!!');
   }
-  else if(summaryLosses === 2) {
+  else if(summaryLosses === 5) {
     printWinner('Niestety, przegrałeś:(');
-  }
-
-
-  
-  
+  }  
 }
-
 
 document.getElementById('button-rock').addEventListener('click', function(){
   playGame(1);
@@ -182,4 +144,16 @@ document.getElementById('button-scissors').addEventListener('click', function(){
 });
 
 
-
+// Nowa gra
+function newGame () {
+  clearMessages();
+  clearWinner();
+  clearPublishResult ();
+  summaryGames = 0;
+  summaryWins = 0;
+  summaryLosses = 0;
+  summaryDraws = 0;
+}
+document.getElementById('thewinner').addEventListener('click', function(){
+  newGame();
+});
