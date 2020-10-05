@@ -29,6 +29,7 @@ h2 {
   text-align: left;
   font-size: 12px;
   color: #747d8c;
+  border: 1px solid #747d8c;
 }
 
 .instruction-header {
@@ -54,7 +55,7 @@ button {
 }
 
 .game-msg {
-  margin: 15px 200px 0 200px;
+  margin: 15px 180px 0 180px;
   font-family: "Sansita Swashed", cursive;
   font-size: 20px;
   letter-spacing: 2.5;
@@ -89,5 +90,18 @@ button {
 .number, .draw {
   color: #7f8c8d;
   font-weight: 300;
+}
+
+.the-winner-is {
+  font-size: 28px;
+  font-weight: 900;
+  margin: 20px 180px;
+  color: #30336b;
+  background-color: #ffeaa7;
+  padding: 25px, 0;
+}
+
+.the-winner-is button {
+  margin-bottom: 20px;
 }
 /*# sourceMappingURL=style.css.map */

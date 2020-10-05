@@ -30,12 +30,14 @@ function playGame(playerInput) {
       console.log('zadziałało sprawdzenie wygranej');
       printMessage('Gratulacje! Wygrałeś!');
       console.log('podaj win');
+      // winnerIs = 'gracz';
       winPlayer = 'wygrał gracz';
       // return 'winer';
     } else if (argComputerMove === argPlayerMove) {
       console.log('zadziałało sprawdzenie remisu');
       printMessage('WOW, remis');
       console.log('podaj draw');
+      // winnerIs = 'komputer';
       draw = 'remis';
       // return 'drawer';
     // } else if (argPlayerMove === 'nieznany ruch') {
@@ -49,6 +51,7 @@ function playGame(playerInput) {
       // return 'loser';
     }
   }
+  // let winnerIs = 'remis';
   let winPlayer = '';
   let draw = '';
   let winComp = '';
@@ -154,25 +157,15 @@ function playGame(playerInput) {
   }
   publishResult();
 
-  function theWinnerIs (summaryWins, summaryLosses){
-    console.log('theWinnerIs done');
-
-    if(summaryWins === 2) {
-        // alert('Wygrałeś');
-        printWinner('Wygrałeś!!!');
-        // document.getElementById('thewinner').innerHTML = 'Wygrałeś!!!';
-        // console.log('wygrałeś 2 bitwy');
-        // return
-    }
-    if (summaryLosses === 2) {
-      // alert('Przegrałeś');
-      printWinner('Niestety, przegrałeś:(');
-      // document.getElementById('thewinner').innerHTML = 'Niestety, przegrałeś:(';
-      // console.log('komputer wygrał 2 bitwy');
-    }
+  //Koniec gry 
+  if(summaryWins === 2) {
+    printWinner('Wygrałeś!!!');
   }
-  theWinnerIs();
-  console.log(summaryWins===2);
+  else if(summaryLosses === 2) {
+    printWinner('Niestety, przegrałeś:(');
+  }
+
+
   
   
 }
@@ -187,4 +180,6 @@ document.getElementById('button-paper').addEventListener('click', function(){
 document.getElementById('button-scissors').addEventListener('click', function(){
   playGame(3);
 });
+
+
 

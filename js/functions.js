@@ -9,5 +9,9 @@ function clearMessages(){
 }
 
 function printWinner(msg){
-	document.getElementById('thewinner').innerHTML = msg;
+	let div = document.createElement('div');
+	div.innerHTML = msg;
+	document.getElementById('thewinner').appendChild(div);
+	let button = document.createElement('button');
+	document.getElementById('thewinner').appendChild(button).innerHTML = 'Zagraj jeszcze raz';
 }
