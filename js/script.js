@@ -1,9 +1,9 @@
 function gameRockScissorsPaper () {
   //Zmienne globalne (dostęp do nich mają też funkcje lokalne)
-  let summaryGames = 0;
-  let summaryWins = 0;
-  let summaryLosses = 0;
-  let summaryDraws = 0;
+  let sumGames = 0;
+  let sumWins = 0;
+  let sumLosses = 0;
+  let sumDraws = 0;
 
 
   function playGame(playerInput) {
@@ -12,41 +12,47 @@ function gameRockScissorsPaper () {
 
     //funkcja odczytująca wybory komputera i gracza i przypisująca im parametr: kamień, papier, nożyce
     function getMoveName(argMoveId){
-      console.log('getMoveName done!');
+    console.log('getMoveName done!');
 
       if(argMoveId === 1){
-        return 'kamień';
-      } else if (argMoveId === 2) {
-        return 'papier';
-      } else if (argMoveId === 3) {
-        return 'nożyce';
-      } else {
-        printMessage('Nie znam ruchu o id ' + argMoveId + '.');
-        return 'nieznany ruch';
+      return 'kamień';
+    } else if (argMoveId === 2) {
+      return 'papier';
+    } else if (argMoveId === 3) {
+      return 'nożyce';
+    } else {
+      printMessage('Nie znam ruchu o id ' + argMoveId + '.');
+      return 'nieznany ruch';
       }
     }
 
-    //funkcja zliczająca liczbę gier
-    function amountGames () {
-        document.querySelector('li.number span').textContent = ++summaryGames;
-        console.log('amountGames done');
-      }
-      amountGames ();
+    // funkcja zliczająca liczbę gier
+    // function amountGames () {
+    //     document.querySelector('li.number span').textContent = ++sumGames;
+    //     console.log('amountGames done');
+    //   }
+    //   amountGames ();
+
+    const amountGames = function(){
+      document.querySelector('li.number span').textContent = ++sumGames;
+      console.log('amountGames done');
+    };
+    amountGames ();
 
     //funkcja wygrana gracza wpisująca komunikat i dodająca +1 do wyniku
     function winPlayer() {
       printMessage('Gratulacje! Wygrałeś!');
-      document.querySelector('li.win span').textContent = ++summaryWins;
+      document.querySelector('li.win span').textContent = ++sumWins;
     }
   //funkcja wygrana komputera wpisująca komunikat i dodająca +1 do wyniku
     function winComputer() {
       printMessage('Niestetety, przegrałeś.');
-      document.querySelector('li.loss span').textContent = ++summaryLosses;
+      document.querySelector('li.loss span').textContent = ++sumLosses;
     }
   //funkcja remis wpisująca komunikat i dodająca +1 do wyniku
     function winDrawer() {
       printMessage('WOW, remis');
-      document.querySelector('li.draw span').textContent = ++summaryDraws;
+      document.querySelector('li.draw span').textContent = ++sumDraws;
     }
   //funkcja odczytująca, kto wygrał i uruchomiająca inne funkcje winPlayer, winDrawer, winComputer
     function displayResult(argComputerMove, argPlayerMove) {
@@ -97,12 +103,12 @@ function gameRockScissorsPaper () {
     // let winComp = '';
     
     //zmienna z losową liczbą (od 1 do 3) jako wybór komputera
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
 
     console.log('Wylosowana liczba to: ' + randomNumber);
 
     // zmienna ruch komputera przypisana do funkcji
-    let computerMove = getMoveName(randomNumber);
+    const computerMove = getMoveName(randomNumber);
 
     printMessage('Mój ruch to: ' + computerMove);
 
@@ -110,7 +116,7 @@ function gameRockScissorsPaper () {
     console.log('Gracz wpisał: ' + playerInput);
 
     // zmienna ruch gracza przypisana do funkcji
-    let playerMove = getMoveName(playerInput);
+    const playerMove = getMoveName(playerInput);
 
     printMessage('Twój ruch to: ' + playerMove);
 
@@ -139,12 +145,12 @@ function gameRockScissorsPaper () {
 
     //Koniec gry określa warunki, kiedy wygrywa gracza a kiedy komputer
     // uruchamia wpisanie komunikatu oraz wyłącza bitony gry a takze dodaje funkcję o możliwości nowej gry
-    if(summaryWins === 5) {
+    if(sumWins === 5) {
       printWinner('Wygrałeś!!!');
       disableButtons();
       addEventListenerToNewGame();
     }
-    else if(summaryLosses === 5) {
+    else if(sumLosses === 5) {
       printWinner('Niestety, przegrałeś:(');
       disableButtons();
       addEventListenerToNewGame();
@@ -152,42 +158,65 @@ function gameRockScissorsPaper () {
   }
 
   // ddoająca komunikat o tym, kto wygrał
-  function addEventListenerToNewGame() {
+  // function addEventListenerToNewGame() {
+  //   document.querySelector('#thewinner button').addEventListener('click', newGame);
+  // }
+  const addEventListenerToNewGame = function() {
     document.querySelector('#thewinner button').addEventListener('click', newGame);
-  }
+  };
 
   // 3 funkcje dookreślające anonimową funkcje playGame pod względem kto wygrał lub remisu
-  function playRock() {
+  // function playRock() {
+  //   playGame(1);
+  // }
+  // function playPaper() {
+  //   playGame(2);
+  // }
+  // function playScissors() {
+  //   playGame(3);
+  // }
+  const playRock = function(){
     playGame(1);
-  }
-  function playPaper() {
+  };
+  const playPaper = function(){
     playGame(2);
-  }
-  function playScissors() {
+  };
+  const playScissors = function(){
     playGame(3);
-  }
+  };
+
   // funkcja dezaktywująca buttony gry (potrzebna, gdy ktoś osiągnął 5 wygranych)
-  function disableButtons() {
+  // function disableButtons() {
+  //   document.getElementById('button-rock').removeEventListener('click', playRock);
+  //   document.getElementById('button-paper').removeEventListener('click', playPaper);
+  //   document.getElementById('button-scissors').removeEventListener('click', playScissors);
+  // }
+  const disableButtons = function() {
     document.getElementById('button-rock').removeEventListener('click', playRock);
     document.getElementById('button-paper').removeEventListener('click', playPaper);
     document.getElementById('button-scissors').removeEventListener('click', playScissors);
-  }
+  };
   // funkcja włączająca buttony (potrzebna, gdy rozpoczynamy nową grę)
-  function enableButtons() {
+  // function enableButtons() {
+  //   document.getElementById('button-rock').addEventListener('click', playRock);
+  //   document.getElementById('button-paper').addEventListener('click', playPaper);
+  //   document.getElementById('button-scissors').addEventListener('click', playScissors);
+  // }
+  const enableButtons = function() {
     document.getElementById('button-rock').addEventListener('click', playRock);
     document.getElementById('button-paper').addEventListener('click', playPaper);
     document.getElementById('button-scissors').addEventListener('click', playScissors);
-  }
+  };
 
   // Nowa gra
-  function newGame () {
+  const newGame = function() {
     clearMessages();
     clearWinner();
     clearPublishResult ();
-    summaryGames = 0;
-    summaryWins = 0;
-    summaryLosses = 0;
-    summaryDraws = 0;
+    sumGames = 0;
+    sumWins = 0;
+    sumLosses = 0;
+    sumDraws = 0;
     enableButtons();
   }
 
